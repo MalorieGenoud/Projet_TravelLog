@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {AuthService} from '../../auth/auth.service';
 
-// TODO: import the environment config.
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-trip-list',
@@ -21,14 +19,14 @@ export class TripListPage implements OnInit {
 
   ionViewDidLoad() {
     // TODO: make an HTTP request to retrieve the trips.
-    const url = 'https://comem-travel-log-api.herokuapp.com/api/trips';
+    const url = '/api/trips';
     this.http.get(url).subscribe(trips => {
       console.log(`Trips loaded`, trips);
     });
   }
 
   ngOnInit() {
-    const url = `${environment.apiUrl}/trips`;
+    const url = `/api/trips`;
     this.http.get(url).subscribe(trips => {
       console.log(`Trips loaded`, trips);
     });
