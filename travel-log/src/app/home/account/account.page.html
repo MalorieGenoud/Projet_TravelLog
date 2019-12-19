@@ -4,6 +4,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <form>
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Username <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" placeholder="Username"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="password" placeholder="Password"></ion-input>
+      </ion-item>
+    </ion-list>
+    
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Update account</ion-button>
+    </div>
+  </form>
+  
+  <section class="full-width">
+    <ion-button expand="full" color="secondary">My Trips</ion-button>
+    <ion-button expand="full" color="secondary">My Places</ion-button>
+  </section>
 </ion-content>
