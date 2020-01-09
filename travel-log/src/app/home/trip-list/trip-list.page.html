@@ -17,26 +17,32 @@
     </ion-item>
   </ion-list>
   <!-- Stop filter -->
-  
+
   <!-- Start List of trip -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Trip title</ion-card-title>
-    </ion-card-header>
+  <h2 [ngPlural]='trips.length'>
+    Il y a {{ trips.length }}
+    <ng-template ngPluralCase='=1'>trip</ng-template>
+    <ng-template ngPluralCase='other'>trips</ng-template>
+  </h2>
+
+  <ion-card *ngFor='let trip of trips'>
     
-    <ion-card-content>
-      Trip description :
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </ion-card-content>
+    <ion-card-header>
+      <ion-card-title >{{trip.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>{{trip.description}}</ion-card-content>
+
   </ion-card>
+
   <!-- Stop List of trip -->
-  
+
   <!-- Start Buttons back & next -->
   <ion-row>
-    <ion-col col-6> 
+    <ion-col col-6>
       <ion-button expand="full">BACK</ion-button>
     </ion-col>
-    
+
     <ion-col col-6>
       <ion-button expand="full">NEXT</ion-button>
     </ion-col>

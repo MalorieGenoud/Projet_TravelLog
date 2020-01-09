@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 // TODO: import Angular's HTTP client.
 import { HttpClient } from '@angular/common/http';
-import {AuthService} from '../../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
+import { Trip } from '../../models/trip';
+import { TripService } from '../../services/trip.service';
+import { TripResponse, TripResponseValue } from '../../models/trip-response';
 
 
 @Component({
@@ -10,11 +13,13 @@ import {AuthService} from '../../auth/auth.service';
   styleUrls: ['./trip-list.page.scss'],
 })
 export class TripListPage implements OnInit {
+  trips: Trip[]=[];
 
   constructor(
-      private auth: AuthService,
-      // TODO: inject the HTTP client.
-      public http: HttpClient
+    private auth: AuthService,
+    // TODO: inject the HTTP client.
+    public http: HttpClient,
+    private tripService: TripService
   ) { }
 
   ionViewDidLoad() {
@@ -25,10 +30,15 @@ export class TripListPage implements OnInit {
     });
   }
 
+  addTrip() {
+
+  }
+
   ngOnInit() {
-    const url = `/api/trips`;
-    this.http.get(url).subscribe(trips => {
-      console.log(`Trips loaded`, trips);
+    this.tripService.getTrips().subscribe(receivedTrips => {
+      this.trips = receivedTrips;
+    }, err => {
+      console.warn('Trip non récupéré', err);
     });
   }
 
