@@ -21,7 +21,11 @@ const routes: Routes = [
         loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
       }
     ]
+  },  {
+    path: 'trip-create',
+    loadChildren: () => import('./trip-create/trip-create.module').then( m => m.TripCreatePageModule)
   }
+
 ];
 
 @NgModule({
