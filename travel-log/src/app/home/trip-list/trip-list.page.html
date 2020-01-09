@@ -21,8 +21,9 @@
   <!-- Start List of trip -->
   <h2 [ngPlural]='trips.length'>
     Il y a {{ trips.length }}
-    <ng-template ngPluralCase='=1'>trip</ng-template>
-    <ng-template ngPluralCase='other'>trips</ng-template>
+    <ng-template ngPluralCase='=0'>voyage</ng-template>
+    <ng-template ngPluralCase='=1'>voyage</ng-template>
+    <ng-template ngPluralCase='other'>voyages</ng-template>
   </h2>
 
   <ion-card *ngFor='let trip of trips'>
@@ -34,7 +35,6 @@
     <ion-card-content>{{trip.description}}</ion-card-content>
 
   </ion-card>
-
   <!-- Stop List of trip -->
 
   <!-- Start Buttons back & next -->

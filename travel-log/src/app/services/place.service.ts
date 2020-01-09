@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Trip } from '../models/trip';
+import { Place } from '../models/place';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
-export class TripService {
+export class PlaceService {
   constructor(private http: HttpClient) { }
 
-  getTrips(): Observable<Trip[]> {
+  getPlaces(): Observable<Place[]> {
     return this.http
-    .get<Trip[]>('/api/trips');
+    .get<Place[]>('/api/places');
   }
 }

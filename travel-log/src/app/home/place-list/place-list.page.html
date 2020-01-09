@@ -17,27 +17,32 @@
     </ion-item>
   </ion-list>
   <!-- Stop filter -->
-  
-  <!-- Start List of trip -->
-  <ion-card>
+
+  <!-- Start List of place -->
+  <h2 [ngPlural]='places.length'>
+    Il y a {{ places.length }}
+    <ng-template ngPluralCase='=0'>place</ng-template>
+    <ng-template ngPluralCase='=1'>place</ng-template>
+    <ng-template ngPluralCase='other'>places</ng-template>
+  </h2>
+
+  <ion-card *ngFor='let place of places'>
+
     <ion-card-header>
-      <ion-card-title>Place title</ion-card-title>
+      <ion-card-title>{{place.name}}</ion-card-title>
     </ion-card-header>
-    
-    <ion-card-content>
-      Trip description :
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      <ion-button expand="block" color="secondary">See the place</ion-button>
-    </ion-card-content>
+
+    <ion-card-content>{{place.description}}</ion-card-content>
+
   </ion-card>
   <!-- Stop List of trip -->
-  
+
   <!-- Start Buttons back & next -->
   <ion-row>
-    <ion-col col-6> 
+    <ion-col col-6>
       <ion-button expand="full">BACK</ion-button>
     </ion-col>
-    
+
     <ion-col col-6>
       <ion-button expand="full">NEXT</ion-button>
     </ion-col>

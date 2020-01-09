@@ -4,8 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { Trip } from '../../models/trip';
 import { TripService } from '../../services/trip.service';
-import { TripResponse, TripResponseValue } from '../../models/trip-response';
-
 
 @Component({
   selector: 'app-trip-list',
@@ -13,7 +11,7 @@ import { TripResponse, TripResponseValue } from '../../models/trip-response';
   styleUrls: ['./trip-list.page.scss'],
 })
 export class TripListPage implements OnInit {
-  trips: Trip[]=[];
+  trips: Trip[] = [];
 
   constructor(
     private auth: AuthService,
