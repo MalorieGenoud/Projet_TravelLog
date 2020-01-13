@@ -3,13 +3,15 @@ export class Place {
     href: string;
     name: string;
     description: string;
+
     location: {
         coordinates: number[];
         type: string;
     };
+    
     pictureUrl: string;
-    placeId: string;
-    placeHref: string;
+    tripId: string;
+    tripHref: string;
     createdAt: string;
     updatedAt: string;
 }

@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./trip-create/trip-create.module').then( m => m.TripCreatePageModule)
   },
 
+  {
+    path: 'place-create',
+    loadChildren: () => import('./place-create/place-create.module').then( m => m.PlaceCreatePageModule)
+  },
 ];
 
 @NgModule({
