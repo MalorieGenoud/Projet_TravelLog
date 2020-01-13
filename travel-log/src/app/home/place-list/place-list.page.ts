@@ -35,6 +35,7 @@ export class PlaceListPage implements OnInit {
   ngOnInit() {
     this.placeService.getPlaces().subscribe(receivedPlaces => {
       this.places = receivedPlaces;
+      console.log(receivedPlaces);
     }, err => {
       console.warn('Place non récupérée', err);
     });

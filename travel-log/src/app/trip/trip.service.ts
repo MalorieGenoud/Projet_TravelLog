@@ -55,21 +55,22 @@ export class TripService {
 			catchError(this.handleError)
 		)
 	}
+
+	// Get single trip data by ID
+	getOneTrip(id): Observable<Trip> {
+		return this.http
+			.get<Trip>(this.base_path + '/' + id)
+			.pipe(
+				retry(2),
+				catchError(this.handleError)
+			)
+	}
+
 	
 	// Get trips
 	getTrips(): Observable<Trip[]> {
 		return this.http
 			.get<Trip[]>('/api/trips');
-	}
-	
-	// Get students data
-	getList(): Observable<Trip[]> {
-		return this.http
-		.get<Trip[]>(this.base_path)
-		.pipe(
-			retry(2),
-			catchError(this.handleError)
-			)
 	}
 	
 	// Update item by id
