@@ -56,14 +56,10 @@ export class TripService {
 		)
 	}
 	
-	// Get single student data by ID
-	getItem(id): Observable<Trip> {
+	// Get trips
+	getTrips(): Observable<Trip[]> {
 		return this.http
-		.get<Trip>(this.base_path + '/' + id)
-		.pipe(
-			retry(2),
-			catchError(this.handleError)
-			)
+			.get<Trip[]>('/api/trips');
 	}
 	
 	// Get students data

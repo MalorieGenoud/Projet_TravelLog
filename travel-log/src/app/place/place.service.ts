@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Place } from '../models/place';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class PlaceService {
@@ -10,6 +9,6 @@ export class PlaceService {
 
   getPlaces(): Observable<Place[]> {
     return this.http
-    .get<Place[]>('/api/places');
+        .get<Place[]>('/api/places');
   }
 }

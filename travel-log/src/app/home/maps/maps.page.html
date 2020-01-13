@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Maps</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="map"
+         leaflet
+         [leafletOptions]="mapOptions"
+         [leafletLayers]="mapMarkers"
+         (leafletMapReady)="onMapReady($event)">
+    </div>
+</ion-content>

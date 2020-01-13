@@ -16,19 +16,27 @@ import { AuthInterceptorProvider } from './auth/auth-interceptor.service';
 // TODO: import the ionic storage module.
 import { IonicStorageModule } from '@ionic/storage';
 
+// TODO: Geolocation
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+// TODO: Leafleft
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [
-      BrowserModule,
+  imports: [BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule, // TODO: add Angular's httpClientModule to your module imports
-    IonicStorageModule.forRoot() // TODO: add the ionic storage module into the app's module.
+    IonicStorageModule.forRoot(), // TODO: add the ionic storage module into the app's module.
+    LeafletModule.forRoot() // TODO: Module Leafleft
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorProvider, multi: true }
   ],
   bootstrap: [AppComponent]

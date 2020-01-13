@@ -4,20 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { MapsPageRoutingModule } from './maps-routing.module';
 
-import { HomePage } from './home.page';
-
-// TODO: Leafleft
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MapsPage } from './maps.page';
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    MapsPageRoutingModule,
+    LeafletModule
   ],
-  declarations: [HomePage]
+  declarations: [MapsPage]
 })
-export class HomePageModule {}
+export class MapsPageModule {}

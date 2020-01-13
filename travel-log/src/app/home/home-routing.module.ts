@@ -19,12 +19,17 @@ const routes: Routes = [
       {
         path: 'account',
         loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
+      },
+      {
+        path: 'maps',
+        loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
       }
     ]
-  },  {
+  },
+  {
     path: 'trip-create',
     loadChildren: () => import('./trip-create/trip-create.module').then( m => m.TripCreatePageModule)
-  }
+  },
 
 ];
 

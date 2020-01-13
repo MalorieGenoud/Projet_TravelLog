@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { Trip } from '../../models/trip';
-import { TripService } from '../../services/trip.service';
+import { TripService } from '../../trip/trip.service';
 
 @Component({
   selector: 'app-trip-list',
