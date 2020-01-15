@@ -25,4 +25,12 @@ export class TripUserPage implements OnInit {
     });
   }
 
+  delete(trip) {
+    //Delete trip in Trip data
+    this.tripService.deleteTrip(trip.id).subscribe(Response => {
+      //Update list after delete is successful
+      location.reload();
+    });
+  }
+
 }

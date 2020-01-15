@@ -17,7 +17,7 @@
     </ion-item>
   </ion-list>
   <!-- Stop filter -->
-
+  
   <!-- Start List of trip -->
   <h2 [ngPlural]='trips.length'>
     Il y a {{ trips.length }}
@@ -25,24 +25,37 @@
     <ng-template ngPluralCase='=1'>voyage</ng-template>
     <ng-template ngPluralCase='other'>voyages</ng-template>
   </h2>
-
+  
   <ion-card *ngFor='let trip of trips'>
-
     <ion-card-header>
-      <ion-card-title >{{trip.title}}</ion-card-title>
+      <ion-card-title >{{trip.title}}</ion-card-title> 
     </ion-card-header>
-
+    
     <ion-card-content>{{trip.description}}</ion-card-content>
 
+    <ion-row>
+      <ion-col col-6>
+        <ion-button expand="full" color="danger" size="small" (click)="delete(trip)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+      
+      <ion-col col-6>
+        <ion-button expand="full" color="warning" size="small">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
   </ion-card>
   <!-- Stop List of trip -->
-
+  
   <!-- Start Buttons back & next -->
   <ion-row>
     <ion-col col-6>
       <ion-button expand="full">BACK</ion-button>
     </ion-col>
-
+    
     <ion-col col-6>
       <ion-button expand="full">NEXT</ion-button>
     </ion-col>

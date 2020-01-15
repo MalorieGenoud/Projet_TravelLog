@@ -80,8 +80,8 @@ export class TripService {
             )
     }
 
-    // Delete item by id
-    deleteItem(id) {
+    // Delete trip by id
+    deleteTrip(id) {
         return this.http
             .delete<void>(this.base_path + '/' + id, this.httpOptions)
             .pipe(
@@ -89,4 +89,5 @@ export class TripService {
                 catchError(this.handleError)
             )
     }
+
 }
