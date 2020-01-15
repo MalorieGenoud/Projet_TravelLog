@@ -37,11 +37,19 @@ const routes: Routes = [
         loadChildren: () => import('./trip-user/trip-user.module').then( m => m.TripUserPageModule)
       },
       {
-        path: 'place-user',
-        loadChildren: () => import('./place-user/place-user.module').then( m => m.PlaceUserPageModule)
+        path: 'places-trip/:tripId',
+        loadChildren: () => import('./places-trip/places-trip.module').then( m => m.PlacesTripPageModule)
+      },
+      {
+        path: 'gallery',
+        loadChildren: () => import('./gallery/gallery.module').then( m => m.GalleryPageModule)
       },
     ]
+  },  {
+    path: 'stats',
+    loadChildren: () => import('./stats/stats.module').then( m => m.StatsPageModule)
   },
+
 ];
 
 @NgModule({

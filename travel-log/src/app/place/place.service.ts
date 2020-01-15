@@ -62,11 +62,9 @@ export class PlaceService {
         .get<Place[]>('/api/places');
   }
 
-  // // Get trip's places
-  // getUserPlaces(): Observable<Place[]> {
-  //   let tripId: string;
-  //   this.tripservice.getTrips().subscribe(trip => tripId = trip.id);
-  //   return this.http
-  //       .get<Place[]>(`/api/places?trip=${tripId}`);
-  // }
+  // Get trip's places
+  getTripPlaces(tripId): Observable<Place[]> {
+    return this.http
+        .get<Place[]>(`/api/places?trip=${tripId}`);
+  }
 }

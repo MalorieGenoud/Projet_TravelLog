@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PlaceUserPageRoutingModule } from './place-user-routing.module';
+import { PlacesTripPageRoutingModule } from './places-trip-routing.module';
 
-import { PlaceUserPage } from './place-user.page';
+import { PlacesTripPage } from './places-trip.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlaceUserPageRoutingModule
+    PlacesTripPageRoutingModule
   ],
-  declarations: [PlaceUserPage]
+  declarations: [PlacesTripPage]
 })
-export class PlaceUserPageModule {}
+export class PlacesTripPageModule {}

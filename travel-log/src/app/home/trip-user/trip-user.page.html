@@ -28,7 +28,7 @@
   
   <ion-card *ngFor='let trip of trips'>
     <ion-card-header>
-      <ion-card-title >{{trip.title}}</ion-card-title> 
+      <ion-card-title [routerLink]="['/home/places-trip', trip.id]">{{trip.title}}</ion-card-title>
     </ion-card-header>
     
     <ion-card-content>{{trip.description}}</ion-card-content>
