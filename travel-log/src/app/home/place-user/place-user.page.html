@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Places</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- START GET ALL PLACES -->
+  <!-- Start filter -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Filter</ion-label>
+      <ion-select placeholder="Select a filter">
+        <ion-select-option value="f">Name a-z</ion-select-option>
+        <ion-select-option value="m">Name z-a</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- Stop filter -->
+
+  <!-- Start List of place -->
+  <h2 [ngPlural]='places.length'>
+    Il y a {{ places.length }}
+    <ng-template ngPluralCase='=0'>place</ng-template>
+    <ng-template ngPluralCase='=1'>place</ng-template>
+    <ng-template ngPluralCase='other'>places</ng-template>
+  </h2>
+
+  <ion-card *ngFor='let place of places'>
+
+    <ion-card-header>
+      <ion-card-title>{{place.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>{{place.description}}</ion-card-content>
+
+  </ion-card>
+  <!-- Stop List of trip -->
+
+  <!-- Start Buttons back & next -->
+  <ion-row>
+    <ion-col col-6>
+      <ion-button expand="full">BACK</ion-button>
+    </ion-col>
+
+    <ion-col col-6>
+      <ion-button expand="full">NEXT</ion-button>
+    </ion-col>
+  </ion-row>
+  <!-- Stop Buttons back & next -->
+  <!-- STOP GET ALL PLACES -->
+</ion-content>

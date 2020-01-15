@@ -23,17 +23,24 @@ const routes: Routes = [
       {
         path: 'maps',
         loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
-      }
+      },
+      {
+        path: 'trip-create',
+        loadChildren: () => import('./trip-create/trip-create.module').then( m => m.TripCreatePageModule)
+      },
+      {
+        path: 'place-create',
+        loadChildren: () => import('./place-create/place-create.module').then( m => m.PlaceCreatePageModule)
+      },
+      {
+        path: 'trip-user',
+        loadChildren: () => import('./trip-user/trip-user.module').then( m => m.TripUserPageModule)
+      },
+      {
+        path: 'place-user',
+        loadChildren: () => import('./place-user/place-user.module').then( m => m.PlaceUserPageModule)
+      },
     ]
-  },
-  {
-    path: 'trip-create',
-    loadChildren: () => import('./trip-create/trip-create.module').then( m => m.TripCreatePageModule)
-  },
-
-  {
-    path: 'place-create',
-    loadChildren: () => import('./place-create/place-create.module').then( m => m.PlaceCreatePageModule)
   },
 ];
 

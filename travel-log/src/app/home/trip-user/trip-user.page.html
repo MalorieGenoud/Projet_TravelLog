@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My trips</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- START GET ALL TRIPS -->
+  <!-- Start filter -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Filter</ion-label>
+      <ion-select placeholder="Select a filter">
+        <ion-select-option value="f">Name a-z</ion-select-option>
+        <ion-select-option value="m">Name z-a</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- Stop filter -->
+
+  <!-- Start List of trip -->
+  <h2 [ngPlural]='trips.length'>
+    Il y a {{ trips.length }}
+    <ng-template ngPluralCase='=0'>voyage</ng-template>
+    <ng-template ngPluralCase='=1'>voyage</ng-template>
+    <ng-template ngPluralCase='other'>voyages</ng-template>
+  </h2>
+
+  <ion-card *ngFor='let trip of trips'>
+
+    <ion-card-header>
+      <ion-card-title >{{trip.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>{{trip.description}}</ion-card-content>
+
+  </ion-card>
+  <!-- Stop List of trip -->
+
+  <!-- Start Buttons back & next -->
+  <ion-row>
+    <ion-col col-6>
+      <ion-button expand="full">BACK</ion-button>
+    </ion-col>
+
+    <ion-col col-6>
+      <ion-button expand="full">NEXT</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-button routerLink="/home/trip-create" expand="full" color="secondary">Create Trip</ion-button>
+</ion-content>

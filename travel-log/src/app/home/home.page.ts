@@ -28,7 +28,8 @@ export class HomePage implements OnInit {
             {title: 'Account', icon: 'contact', path: 'account'},
             {title: 'All places', icon: 'list', path: 'place-list'},
             {title: 'All trips', icon: 'list', path: 'trip-list'},
-            {title: 'Maps', icon: 'map', path: 'maps'}
+            {title: 'Maps', icon: 'map', path: 'maps'},
+            {title: 'Stats', icon: 'stats', path: 'stats'}
         ];
     }
 
