@@ -25,8 +25,9 @@ export class TripCreatePage implements OnInit {
     }
     
     submitForm() {
-      this.tripService.createItem(this.data).subscribe((response) => {
+      this.tripService.createTrip(this.data).subscribe((response) => {
         console.log("trip added");
+        location.reload();
       });
       
     }

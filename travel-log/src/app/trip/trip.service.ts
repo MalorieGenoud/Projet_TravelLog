@@ -46,10 +46,10 @@ export class TripService {
             'Something bad happened; please try again later.');
     };
 
-    // Create a new item
-    createItem(item): Observable<Trip> {
+    // Create a new trip
+    createTrip(trip): Observable<Trip> {
         return this.http
-            .post<Trip>(this.base_path, item, this.httpOptions)
+            .post<Trip>(this.base_path, trip, this.httpOptions)
             .pipe(
                 retry(2),
                 catchError(this.handleError)
