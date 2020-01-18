@@ -44,12 +44,6 @@ const routes: Routes = [
         path: 'trip-edit/:id',
         loadChildren: () => import('./trip-edit/trip-edit.module').then(m => m.TripEditPageModule)
       },
-      /*
-      {
-        path: 'place-user',
-        loadChildren: () => import('./place-user/place-user.module').then( m => m.PlaceUserPageModule)
-      },
-*/
       {
         path: 'gallery',
         loadChildren: () => import('./gallery/gallery.module').then(m => m.GalleryPageModule)
