@@ -17,7 +17,7 @@ export class TripUserPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tripService.getUserTrips().subscribe(receivedTrips => {
+    this.tripService.getTrips().subscribe(receivedTrips => {
       this.trips = receivedTrips;
       console.log(receivedTrips);
     }, err => {

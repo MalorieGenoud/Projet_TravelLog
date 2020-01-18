@@ -10,6 +10,11 @@ const routes: Routes = [
     // TODO: Add the guard to the canActivate array of this route
     canActivate: [AuthGuard] },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule) },
+  {
+    path: 'trip-edit',
+    loadChildren: () => import('../../src/app/home/trip-edit/trip-edit.module').then( m => m.TripEditPageModule)
+  },
+
 ];
 
 @NgModule({

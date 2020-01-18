@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>Update trip</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label>Titre</ion-label>
+        <ion-input [(ngModel)]="trip.title" placeholder="Entrer une nouveau titre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-input [(ngModel)]="trip.description" placeholder="Entrer une nouvelle description"></ion-input>
+    </ion-item>
+
+    <ion-button [routerLink]="['/home/trip-user']" (click)="update()" color="success" size="small">
+        Mettre à jour
+    </ion-button>
+
+    <ion-button [routerLink]="['/home/trip-user']" color="danger" size="small">
+        Annuler
+    </ion-button>
+
+</ion-content>

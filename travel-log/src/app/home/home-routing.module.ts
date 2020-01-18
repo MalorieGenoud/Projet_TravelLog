@@ -10,50 +10,60 @@ const routes: Routes = [
     children: [
       {
         path: 'place-list',
-        loadChildren: () => import('./place-list/place-list.module').then( m => m.PlaceListPageModule)
+        loadChildren: () => import('./place-list/place-list.module').then(m => m.PlaceListPageModule)
       },
       {
         path: 'trip-list',
-        loadChildren: () => import('./trip-list/trip-list.module').then( m => m.TripListPageModule)
+        loadChildren: () => import('./trip-list/trip-list.module').then(m => m.TripListPageModule)
       },
       {
         path: 'account',
-        loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
+        loadChildren: () => import('./account/account.module').then(m => m.AccountPageModule)
       },
       {
         path: 'maps',
-        loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
+        loadChildren: () => import('./maps/maps.module').then(m => m.MapsPageModule)
       },
       {
         path: 'trip-create',
-        loadChildren: () => import('./trip-create/trip-create.module').then( m => m.TripCreatePageModule)
+        loadChildren: () => import('./trip-create/trip-create.module').then(m => m.TripCreatePageModule)
       },
       {
         path: 'place-create',
-        loadChildren: () => import('./place-create/place-create.module').then( m => m.PlaceCreatePageModule)
+        loadChildren: () => import('./place-create/place-create.module').then(m => m.PlaceCreatePageModule)
       },
       {
         path: 'trip-user',
-        loadChildren: () => import('./trip-user/trip-user.module').then( m => m.TripUserPageModule)
+        loadChildren: () => import('./trip-user/trip-user.module').then(m => m.TripUserPageModule)
       },
       {
         path: 'places-trip/:tripId',
-        loadChildren: () => import('./places-trip/places-trip.module').then( m => m.PlacesTripPageModule)
+        loadChildren: () => import('./places-trip/places-trip.module').then(m => m.PlacesTripPageModule)
       },
       {
+        path: 'trip-edit/:id',
+        loadChildren: () => import('./trip-edit/trip-edit.module').then(m => m.TripEditPageModule)
+      },
+      /*
+      {
+        path: 'place-user',
+        loadChildren: () => import('./place-user/place-user.module').then( m => m.PlaceUserPageModule)
+      },
+*/
+      {
         path: 'gallery',
-        loadChildren: () => import('./gallery/gallery.module').then( m => m.GalleryPageModule)
+        loadChildren: () => import('./gallery/gallery.module').then(m => m.GalleryPageModule)
       },
     ]
-  },  {
-    path: 'stats',
-    loadChildren: () => import('./stats/stats.module').then( m => m.StatsPageModule)
   },
-
+  {
+    path: 'stats',
+    loadChildren: () => import('./stats/stats.module').then(m => m.StatsPageModule)
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomePageRoutingModule {}
+export class HomePageRoutingModule { }
