@@ -25,9 +25,9 @@
     <!-- Start List of trip -->
     <h2 [ngPlural]='trips.length'>
         There
-        <ng-template ngPluralCase='=0'> is {{ trips.length }} voyage</ng-template>
-        <ng-template ngPluralCase='=1'>is {{ trips.length }} voyage</ng-template>
-        <ng-template ngPluralCase='other'>are {{ trips.length }} voyages</ng-template>
+        <ng-template ngPluralCase='=0'> is {{ trips.length }} trip</ng-template>
+        <ng-template ngPluralCase='=1'>is {{ trips.length }} trip</ng-template>
+        <ng-template ngPluralCase='other'>are {{ trips.length }} trips</ng-template>
     </h2>
 
     <ion-card *ngFor='let trip of trips'>

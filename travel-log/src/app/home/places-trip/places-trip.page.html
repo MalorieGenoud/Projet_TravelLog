@@ -24,9 +24,9 @@
   <!-- Start List of place -->
   <h2 [ngPlural]='places.length'>
     There
-    <ng-template ngPluralCase='=0'> is {{ places.length }} voyage</ng-template>
-    <ng-template ngPluralCase='=1'>is {{ places.length }} voyage</ng-template>
-    <ng-template ngPluralCase='other'>are {{ places.length }} voyages</ng-template>
+    <ng-template ngPluralCase='=0'> is {{ places.length }} place</ng-template>
+    <ng-template ngPluralCase='=1'>is {{ places.length }} place</ng-template>
+    <ng-template ngPluralCase='other'>are {{ places.length }} places</ng-template>
   </h2>
 
   <ion-card *ngFor='let place of places'>
