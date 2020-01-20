@@ -1,64 +1,70 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>My trips</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>My trips</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- START GET ALL TRIPS -->
-  <!-- Start filter -->
-  <ion-list>
-    <ion-item>
-      <ion-label>Filter</ion-label>
-      <ion-select placeholder="Select a filter">
-        <ion-select-option value="f">Name a-z</ion-select-option>
-        <ion-select-option value="m">Name z-a</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <!-- Stop filter -->
-  
-  <!-- Start List of trip -->
-  <h2 [ngPlural]='trips.length'>
-    Il y a {{ trips.length }}
-    <ng-template ngPluralCase='=0'>voyage</ng-template>
-    <ng-template ngPluralCase='=1'>voyage</ng-template>
-    <ng-template ngPluralCase='other'>voyages</ng-template>
-  </h2>
-  
-  <ion-card *ngFor='let trip of trips'>
-    <ion-card-header>
-      <ion-card-title [routerLink]="['/home/places-trip', trip.id]">{{trip.title}}</ion-card-title>
-    </ion-card-header>
-    
-    <ion-card-content>{{trip.description}}</ion-card-content>
+    <!-- START GET ALL TRIPS -->
+    <!-- Start filter -->
+    <ion-list>
+        <ion-item>
+            <ion-label>Filter</ion-label>
+            <ion-select (ionChange)="filter($event)" placeholder="Select a filter">
+                <ion-select-option value="title">Title</ion-select-option>
+                <ion-select-option value="placesCount">Places Count</ion-select-option>
+                <ion-select-option value="createdAt">Created At</ion-select-option>
+                <ion-select-option value="updatedAt">Updated At</ion-select-option>
+                <ion-select-option value="id">Id</ion-select-option>
+                <ion-select-option value="user.name">Username</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <!-- Stop filter -->
 
+    <!-- Start List of trip -->
+    <h2 [ngPlural]='trips.length'>
+        There
+        <ng-template ngPluralCase='=0'> is {{ trips.length }} voyage</ng-template>
+        <ng-template ngPluralCase='=1'>is {{ trips.length }} voyage</ng-template>
+        <ng-template ngPluralCase='other'>are {{ trips.length }} voyages</ng-template>
+    </h2>
+
+    <ion-card *ngFor='let trip of trips'>
+        <ion-card-header>
+            <ion-card-title [routerLink]="['/home/places-trip', trip.id]">{{trip.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>{{trip.description}}</ion-card-content>
+
+        <ion-row>
+            <ion-col col-6>
+                <ion-button expand="full" color="danger" size="medium" (click)="delete(trip)">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+            </ion-col>
+
+            <ion-col col-6>
+                <ion-button [routerLink]="['/home/trip-edit', trip.id]" expand="full" color="warning" size="medium">
+                    <ion-icon name="create"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <!-- Stop List of trip -->
+
+    <!-- Start Buttons cancel & create -->
     <ion-row>
-      <ion-col col-6>
-        <ion-button expand="full" color="danger" size="small" (click)="delete(trip)">
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-      </ion-col>
-      
-      <ion-col col-6>
-        <ion-button [routerLink]="['/home/trip-edit', trip.id]" expand="full" color="warning" size="small">
-          <ion-icon name="create"></ion-icon>
-        </ion-button>
-      </ion-col>
+        <ion-col col-6>
+            <ion-button [routerLink]="['/home/account']" expand="full" type="submit" color="secondary">BACK TO ACCOUNT
+                PAGE
+            </ion-button>
+        </ion-col>
+
+        <ion-col col-6>
+            <!--<ion-button expand="full">CREATE</ion-button>-->
+            <ion-button [routerLink]="['/home/trip-create']" expand="full" type="submit" color="secondary">CREATE A TRIP
+            </ion-button>
+        </ion-col>
     </ion-row>
-    
-  </ion-card>
-  <!-- Stop List of trip -->
-  
-  <!-- Start Buttons back & next -->
-  <ion-row>
-    <ion-col col-6>
-      <ion-button expand="full">BACK</ion-button>
-    </ion-col>
-    
-    <ion-col col-6>
-      <ion-button expand="full">NEXT</ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-button routerLink="/home/trip-create" expand="full" color="secondary">Create Trip</ion-button>
+    <!-- Stop Buttons cancel & create -->
 </ion-content>

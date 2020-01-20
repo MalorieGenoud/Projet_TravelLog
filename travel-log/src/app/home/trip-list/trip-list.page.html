@@ -1,52 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>TripList</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>TripList</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- START GET ALL TRIPS -->
-  <!-- Start filter -->
-  <ion-list>
-    <ion-item>
-      <ion-label>Filter</ion-label>
-      <ion-select placeholder="Select a filter">
-        <ion-select-option value="f">Name a-z</ion-select-option>
-        <ion-select-option value="m">Name z-a</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <!-- Stop filter -->
+    <!-- START GET ALL TRIPS -->
+    <!-- Start filter -->
+    <ion-list>
+        <ion-item>
+            <ion-label>Filter</ion-label>
+            <ion-select (ionChange)="filter($event)" placeholder="Select a filter">
+                <ion-select-option value="title">Title</ion-select-option>
+                <ion-select-option value="placesCount">Places Count</ion-select-option>
+                <ion-select-option value="createdAt">Created At</ion-select-option>
+                <ion-select-option value="updatedAt">Updated At</ion-select-option>
+                <ion-select-option value="id">Id</ion-select-option>
+                <ion-select-option value="user.name">Username</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <!-- Stop filter -->
 
-  <!-- Start List of trip -->
-  <h2 [ngPlural]='trips.length'>
-    Il y a {{ trips.length }}
-    <ng-template ngPluralCase='=0'>voyage</ng-template>
-    <ng-template ngPluralCase='=1'>voyage</ng-template>
-    <ng-template ngPluralCase='other'>voyages</ng-template>
-  </h2>
+    <!-- Start List of trip -->
+    <h2 [ngPlural]='trips.length'>
+        There
+        <ng-template ngPluralCase='=0'> is {{ trips.length }} voyage</ng-template>
+        <ng-template ngPluralCase='=1'>is {{ trips.length }} voyage</ng-template>
+        <ng-template ngPluralCase='other'>are {{ trips.length }} voyages</ng-template>
+    </h2>
 
-  <ion-card *ngFor='let trip of trips'>
+    <ion-card *ngFor='let trip of trips'>
+        <ion-card-header>
+            <ion-card-title [routerLink]="['/home/places-trip', trip.id]">{{trip.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>{{trip.description}}</ion-card-content>
+    </ion-card>
+    <!-- Stop List of trip -->
 
-    <ion-card-header>
-      <ion-card-title>{{trip.title}}</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>{{trip.description}}</ion-card-content>
-
-  </ion-card>
-  <!-- Stop List of trip -->
-
-  <!-- Start Buttons back & next -->
-  <ion-row>
-    <ion-col col-6>
-      <ion-button expand="full">BACK</ion-button>
-    </ion-col>
-
-    <ion-col col-6>
-      <ion-button expand="full">NEXT</ion-button>
-    </ion-col>
-  </ion-row>
-  <!-- Stop Buttons back & next -->
-  <!-- STOP GET ALL TRIPS -->
+    <!-- STOP GET ALL TRIPS -->
 </ion-content>

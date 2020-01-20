@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>gallery</ion-title>
+    <ion-title>My gallery</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,4 +18,10 @@
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <ion-row>
+    <ion-col col-6>
+      <ion-button [routerLink]="['/home/account']" expand="full" type="submit" color="secondary">BACK TO PAGE ACCOUNT</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

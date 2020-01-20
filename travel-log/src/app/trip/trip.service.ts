@@ -56,16 +56,6 @@ export class TripService {
 			)
 	}
 
-	// Create a new item
-	createItem(item): Observable<Trip> {
-		return this.http
-			.post<Trip>(this.base_path, item, this.httpOptions)
-			.pipe(
-				retry(2),
-				catchError(this.handleError)
-			)
-	}
-
 	// Get trips
 	getTrips(): Observable<Trip[]> {
 		return this.http.get<Trip[]>(`api/trips`);
@@ -80,22 +70,25 @@ export class TripService {
 			)
 	}
 
-	/*
-	// Update item by id
-	updateItem(id, item): Observable<Trip> {
+	// Get trips' user
+	getUserTrips(): Observable<Trip[]> {
+		let userId: string;
+		this.authService.getUser().subscribe(user => userId = user.id);
 		return this.http
-			.put<Trip>(this.base_path + '/' + id, item, this.httpOptions)
-			.pipe(
-				retry(2),
-				catchError(this.handleError)
-			)
+			.get<Trip[]>(`/api/trips?user=${userId}`);
 	}
-	*/
+
+	// Filter trips
+	filterTrips(filter): Observable<Trip[]>{
+		return this.http
+			.get<Trip[]>(`/api/trips?sort=${filter}`);
+
+	}
 
 	// Update item by id
-	updateItem(trip: Trip): Observable<Trip> {
+	updateTrip(id, item): Observable<Trip> {
 		return this.http
-			.patch<Trip>(this.base_path + '/' + trip.id, trip, this.httpOptions)
+			.patch<Trip>(this.base_path + '/' + id, item, this.httpOptions)
 			.pipe(
 				retry(2),
 				catchError(this.handleError)

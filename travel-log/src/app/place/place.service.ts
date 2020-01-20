@@ -8,6 +8,7 @@ import {Place} from '../models/place';
 import { AuthService } from '../auth/auth.service';
 
 import { TripService } from '../trip/trip.service';
+import {Trip} from "../models/trip";
 
 @Injectable({
   providedIn: 'root'
@@ -62,9 +63,36 @@ export class PlaceService {
         .get<Place[]>('/api/places');
   }
 
+  // Get single student data by ID
+  getOnePlace(id): Observable<Place> {
+    return this.http
+        .get<Place>(this.base_path + '/' + id)
+        .pipe(
+            retry(2),
+            catchError(this.handleError)
+        )
+  }
+
   // Get trip's places
   getTripPlaces(tripId): Observable<Place[]> {
     return this.http
         .get<Place[]>(`/api/places?trip=${tripId}`);
+  }
+
+  // Filter trips
+  filterPlaces(filter): Observable<Trip[]>{
+    return this.http
+        .get<Trip[]>(`/api/places?sort=${filter}`);
+
+  }
+
+  // Delete trip by id
+  deletePlace(id) {
+    return this.http
+        .delete<void>(this.base_path + '/' + id, this.httpOptions)
+        .pipe(
+            retry(2),
+            catchError(this.handleError)
+        )
   }
 }

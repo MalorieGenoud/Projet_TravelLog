@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>stats</ion-title>
+    <ion-title>All stats</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <!-- Start total list -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total trips</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> There are {{tripsCount}} trips</ion-card-content>
+  </ion-card>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total places</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> There are {{placesCount}} places</ion-card-content>
+  </ion-card>
+  <!-- Stop total list -->
 </ion-content>

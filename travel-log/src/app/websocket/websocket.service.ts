@@ -12,7 +12,6 @@ export class WebsocketService {
   // its 'subscribe()' method is called
   private ws$ = new ReplaySubject<WebSocket>(1);
 
-
   constructor() {
     const socket = new WebSocket(WS_SERVER_URL);
     socket.onopen = () => {
@@ -41,6 +40,12 @@ export class WebsocketService {
         // When a message is emitted, change the value to the message content
         map((event: MessageEvent) => event.data)
     );
+  }
+
+  public send(data: any): void {
+    this.ws$.subscribe(socket => {
+      socket.send(JSON.stringify(data));
+    });
   }
 
 }

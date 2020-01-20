@@ -4,8 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { Trip } from '../../models/trip';
 import { TripService } from '../../trip/trip.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CacheService } from 'src/app/cache.service';
 
 @Component({
   selector: 'app-trip-list',
@@ -21,19 +19,12 @@ export class TripListPage {
     // TODO: inject the HTTP client.
     public http: HttpClient,
     private tripService: TripService,
-    public activatedRoute: ActivatedRoute,
-    public router: Router,
-    private cache: CacheService<Trip>
   ) {
     this.trip = new Trip();
   }
-  
-  addTrip() {
 
-  }
 
-  ionViewDidEnter() {
-    console.log('ion view did load');
+  ngOnInit() {
     this.tripService.getTrips().subscribe(receivedTrips => {
       this.trips = receivedTrips;
     }, err => {
@@ -41,6 +32,9 @@ export class TripListPage {
     });
   }
 
-
-
+  filter(data){
+    this.tripService.filterTrips(data.detail.value).subscribe(response =>{
+      this.trips = response;
+    })
+  }
 }

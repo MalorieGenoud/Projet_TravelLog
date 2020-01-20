@@ -31,4 +31,18 @@ export class PlacesTripPage implements OnInit {
     });
   }
 
+  delete(place) {
+    //Delete trip in Trip data
+    this.placeService.deletePlace(place.id).subscribe(Response => {
+      //Update list after delete is successful
+      location.reload();
+    });
+  }
+
+  filter(data){
+    this.placeService.filterPlaces(data.detail.value).subscribe(response =>{
+
+    })
+  }
+
 }

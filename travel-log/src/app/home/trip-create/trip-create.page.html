@@ -1,39 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Create Trip</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Create Trip</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- START POST TRIP-->
-  <!--Start form create trip -->
-  <form>
-    <ion-list lines="full" class="ion-no-margin ion-no-padding">
-      <ion-item>
-        <ion-label position="stacked">Title <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="text" [(ngModel)]="data.title" name="title" placeholder="Title of my trip"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="stacked">Description <ion-text color="danger">*</ion-text></ion-label>
-        <ion-textarea required [(ngModel)]="data.description" name="description" placeholder="Description of my trip"></ion-textarea>
-      </ion-item>
-    </ion-list>
-  </form>
-  <!--Stop form create trip-->
-  
-  <!-- Start Buttons cancel & create -->
-  <ion-row>
-    <ion-col col-6> 
-      <ion-button expand="full" type="submit">CANCEL</ion-button>
-    </ion-col>
-    
-    <ion-col col-6>
-      <!--<ion-button expand="full">CREATE</ion-button>-->
-      <ion-button expand="full" type="submit" (click)="submitForm()" routerLink="/home/trip-list">CREATE</ion-button>
-    </ion-col>
-  </ion-row>
-  <!-- Stop Buttons cancel & create -->
-  
-  <!-- STOP POST TRIP -->
+    <!-- START POST TRIP-->
+    <!--Start form create trip -->
+    <form>
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item>
+                <ion-label position="stacked">Title
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required type="text" [(ngModel)]="data.title" name="title"
+                           placeholder="Title of my trip"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="stacked">Description
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-textarea required [(ngModel)]="data.description" name="description"
+                              placeholder="Description of my trip"></ion-textarea>
+            </ion-item>
+        </ion-list>
+    </form>
+    <!--Stop form create trip-->
+
+    <!-- Start Buttons cancel & create -->
+    <ion-row>
+        <ion-col col-6>
+            <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="secondary">CANCEL
+            </ion-button>
+        </ion-col>
+
+        <ion-col col-6>
+            <!--<ion-button expand="full">CREATE</ion-button>-->
+            <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="success"
+                        (click)="submitForm()">CREATE
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <!-- Stop Buttons cancel & create -->
+
+    <!-- STOP POST TRIP -->
 </ion-content>

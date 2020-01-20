@@ -12,7 +12,6 @@ import { CacheService } from 'src/app/cache.service';
 
 export class TripEditPage implements OnInit {
 
-    id: number;
     trip: Trip;
     tripId: any;
 
@@ -37,8 +36,10 @@ export class TripEditPage implements OnInit {
 
     update() {
         //Update trip by taking id and updated data object
-        this.tripService.updateItem(this.trip).subscribe(response => {
-            console.log("trip updated", response);
+        this.tripService.updateTrip(this.tripId, this.trip).subscribe(response => {
+            console.log("trip updated");
+            //Update list after delete is successful
+            location.reload();
         })
     }
 

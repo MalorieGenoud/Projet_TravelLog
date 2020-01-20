@@ -1,22 +1,52 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title [routerLink]="['/home' ]">Home</ion-title>
-    <!-- Logout button -->
-    <ion-buttons slot="end">
-      <ion-button (click)="logOut()">
-        <ion-icon name='log-out'></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Home</ion-title>
+        <!-- Logout button -->
+        <ion-buttons slot="end">
+            <ion-button (click)="logOut()">
+                <ion-icon name='log-out'></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button [tab]="tab.path" *ngFor="let tab of tabs">
-        <ion-icon [name]="tab.icon"></ion-icon>
-        <ion-label>{{ tab.title }}</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Welcome !</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>Welcome to the app for "Travel Log". Here you can see a lot of things.</ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Your account</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>You can see your trips and your gallery (you can take some pictures with your phone). You can
+            create, update and delete a trip. You can create and delete a place.
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>All Trips and places</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>You can see all trips and places created ("Trips" and "Places" menu).
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Map and stats</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>You can see a map show your position and the position of places. And of course, you can see
+            the live stats.
+        </ion-card-content>
+    </ion-card>
+
+    <ion-tabs>
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button [tab]="tab.path" *ngFor="let tab of tabs">
+                <ion-icon [name]="tab.icon"></ion-icon>
+                <ion-label>{{ tab.title }}</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
 </ion-content>

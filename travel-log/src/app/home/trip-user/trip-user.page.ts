@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Trip } from '../../models/trip';
 import { TripService } from '../../trip/trip.service';
 
@@ -17,12 +17,13 @@ export class TripUserPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tripService.getTrips().subscribe(receivedTrips => {
+    this.tripService.getUserTrips().subscribe(receivedTrips => {
       this.trips = receivedTrips;
       console.log(receivedTrips);
     }, err => {
       console.warn('Error', err);
     });
+
   }
 
   delete(trip) {
@@ -33,4 +34,9 @@ export class TripUserPage implements OnInit {
     });
   }
 
+  filter(data){
+    this.tripService.filterTrips(data.detail.value).subscribe(response =>{
+      this.trips = response;
+    })
+  }
 }

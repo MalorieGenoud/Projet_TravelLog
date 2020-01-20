@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Places' Trip</ion-title>
+    <ion-title>Trip's places</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,9 +10,12 @@
   <ion-list>
     <ion-item>
       <ion-label>Filter</ion-label>
-      <ion-select placeholder="Select a filter">
-        <ion-select-option value="f">Name a-z</ion-select-option>
-        <ion-select-option value="m">Name z-a</ion-select-option>
+      <ion-select (ionChange)="filter($event)" placeholder="Select a filter">
+        <ion-select-option value="name">Name</ion-select-option>
+        <ion-select-option value="createdAt">Created At</ion-select-option>
+        <ion-select-option value="updatedAt">Updated At</ion-select-option>
+        <ion-select-option value="id">Id</ion-select-option>
+        <ion-select-option value="trip.title">Trip title</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -20,34 +23,42 @@
 
   <!-- Start List of place -->
   <h2 [ngPlural]='places.length'>
-    Il y a {{ places.length }}
-    <ng-template ngPluralCase='=0'>place</ng-template>
-    <ng-template ngPluralCase='=1'>place</ng-template>
-    <ng-template ngPluralCase='other'>places</ng-template>
+    There
+    <ng-template ngPluralCase='=0'> is {{ places.length }} voyage</ng-template>
+    <ng-template ngPluralCase='=1'>is {{ places.length }} voyage</ng-template>
+    <ng-template ngPluralCase='other'>are {{ places.length }} voyages</ng-template>
   </h2>
 
   <ion-card *ngFor='let place of places'>
-
     <ion-card-header>
-      <ion-card-title>{{place.name}}</ion-card-title>
+      <ion-card-title [routerLink]="['/home/one-place', place.id]">{{place.name}}</ion-card-title>
     </ion-card-header>
-
     <ion-card-content>{{place.description}}</ion-card-content>
 
+    <ion-row>
+      <ion-col col-6>
+        <ion-button expand="full" color="danger" size="medium" (click)="delete(place)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </ion-card>
   <!-- Stop List of trip -->
 
-  <!-- Start Buttons back & next -->
+  <!-- Start Buttons cancel & create -->
   <ion-row>
     <ion-col col-6>
-      <ion-button expand="full">BACK</ion-button>
+      <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="secondary">BACK TO YOUR TRIPS
+      </ion-button>
     </ion-col>
 
     <ion-col col-6>
-      <ion-button expand="full">NEXT</ion-button>
+      <!--<ion-button expand="full">CREATE</ion-button>-->
+      <ion-button [routerLink]="['/home/place-create']" expand="full" type="submit" color="secondary">CREATE A PLACE
+      </ion-button>
     </ion-col>
   </ion-row>
-  <!-- Stop Buttons back & next -->
+  <!-- Stop Buttons cancel & create -->
+
   <!-- STOP GET ALL PLACES -->
-  <ion-button routerLink="/home/place-create" expand="full" color="secondary">Create Place</ion-button>
 </ion-content>

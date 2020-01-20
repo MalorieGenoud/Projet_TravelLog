@@ -26,9 +26,9 @@ export class HomePage implements OnInit {
     ) {
         this.tabs = [
             {title: 'Account', icon: 'contact', path: 'account'},
-            {title: 'All places', icon: 'list', path: 'place-list'},
-            {title: 'All trips', icon: 'list', path: 'trip-list'},
-            {title: 'Maps', icon: 'map', path: 'maps'},
+            {title: 'Trips', icon: 'list', path: 'trip-list'},
+            {title: 'Places', icon: 'list', path: 'place-list'},
+            {title: 'Map', icon: 'map', path: 'maps'},
             {title: 'Stats', icon: 'stats', path: 'stats'}
         ];
     }

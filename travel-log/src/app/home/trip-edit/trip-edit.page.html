@@ -1,27 +1,48 @@
 <ion-header>
-    <ion-toolbar color="tertiary">
+    <ion-toolbar>
         <ion-title>Update trip</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+    <!-- START PATCH TRIP-->
+    <!--Start form update trip -->
+    <form>
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item>
+                <ion-label position="stacked">Title
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required type="text" [(ngModel)]="trip.title" name="title"
+                           placeholder="Enter a new title"></ion-input>
+            </ion-item>
 
-    <ion-item>
-        <ion-label>Titre</ion-label>
-        <ion-input [(ngModel)]="trip.title" placeholder="Entrer une nouveau titre"></ion-input>
-    </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Description
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required type="text" [(ngModel)]="trip.description" name="description"
+                           placeholder="Enter a new description"></ion-input>
+            </ion-item>
+        </ion-list>
+    </form>
+    <!--Stop form update trip-->
 
-    <ion-item>
-        <ion-label>Description</ion-label>
-        <ion-input [(ngModel)]="trip.description" placeholder="Entrer une nouvelle description"></ion-input>
-    </ion-item>
+    <!-- Start Buttons cancel & create -->
+    <ion-row>
+        <ion-col col-6>
+            <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="secondary">CANCEL
+            </ion-button>
+        </ion-col>
 
-    <ion-button [routerLink]="['/home/trip-list']" (click)="update()" color="success" size="small">
-        Mettre à jour
-    </ion-button>
+        <ion-col col-6>
+            <!--<ion-button expand="full">CREATE</ion-button>-->
+            <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="primary"
+                        (click)="update()">UPDATE
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <!-- Stop Buttons cancel & create -->
 
-    <ion-button [routerLink]="['/home/trip-list']" color="danger" size="small">
-        Annuler
-    </ion-button>
-
+    <!-- STOP POST TRIP -->
 </ion-content>

@@ -31,6 +31,8 @@ export class PlaceCreatePage implements OnInit {
     submitForm() {
       this.placeService.createPlace(this.data).subscribe((response) => {
         console.log("place added");
+        //Update list after delete is successful
+        location.reload();
       });
       
     }

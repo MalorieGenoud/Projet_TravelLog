@@ -17,20 +17,9 @@ export class PlaceListPage implements OnInit {
     private auth: AuthService,
     // TODO: inject the HTTP client.
     public http: HttpClient,
+    // TODO: Service
     private placeService: PlaceService
   ) { }
-
-  ionViewDidLoad() {
-    // TODO: make an HTTP request to retrieve the places.
-    const url = '/api/places';
-    this.http.get(url).subscribe(places => {
-      console.log(`Places loaded`, places);
-    });
-  }
-
-  addPlace() {
-
-  }
 
   ngOnInit() {
     this.placeService.getPlaces().subscribe(receivedPlaces => {
@@ -41,4 +30,9 @@ export class PlaceListPage implements OnInit {
     });
   }
 
+  filter(data){
+    this.placeService.filterPlaces(data.detail.value).subscribe(response =>{
+
+    })
+  }
 }

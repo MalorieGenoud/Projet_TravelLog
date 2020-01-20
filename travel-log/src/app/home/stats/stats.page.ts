@@ -9,13 +9,20 @@ import { WebsocketService } from '../../websocket/websocket.service';
   styleUrls: ['./stats.page.scss'],
 })
 export class StatsPage implements OnInit {
+  message: any;
+  placesCount: number;
+  tripsCount: number;
+  userCount: number;
 
   constructor(private wsService: WebsocketService) {
     this.wsService
         .listen()
-        .subscribe(message => {
-          // Do something when a message is received
-        });
+        .subscribe((message: any) => {
+            this.message = JSON.parse(message);
+            this.placesCount = this.message.stats.placesCount;
+            this.tripsCount = this.message.stats.tripsCount;
+            console.log(this.message.stats)
+          });
   }
 
   ngOnInit() {
