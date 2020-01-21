@@ -15,7 +15,7 @@ export class TripEditPage implements OnInit {
 
     trip: Trip;
     tripId: any;
-    createError: boolean;
+    updateError: boolean;
 
     constructor(
         //public router: ParamMap,
@@ -44,7 +44,7 @@ export class TripEditPage implements OnInit {
         }
 
         // Hide any previous login error.
-        this.createError = false;
+        this.updateError = false;
 
         this.tripService.updateTrip(this.tripId, this.trip).subscribe({
             next: () => {
@@ -52,7 +52,7 @@ export class TripEditPage implements OnInit {
                 location.reload();
             },
             error: err => {
-                this.createError = true;
+                this.updateError = true;
                 console.warn(`Update a trip failed: ${err.message}`);
             }
         });

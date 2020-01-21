@@ -50,7 +50,7 @@
             <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="success"
                         (click)="update(updateForm)">UPDATE
             </ion-button>
-            <ion-text color='danger' *ngIf="createError">Invalid</ion-text>
+            <ion-text color='danger' *ngIf="updateError">Invalid</ion-text>
         </ion-col>
     </ion-row>
     <!-- Stop Buttons cancel & create -->
