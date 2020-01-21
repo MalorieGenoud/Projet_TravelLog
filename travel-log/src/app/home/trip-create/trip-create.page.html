@@ -7,22 +7,32 @@
 <ion-content>
     <!-- START POST TRIP-->
     <!--Start form create trip -->
-    <form>
+    <form #createForm="ngForm">
         <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
                 <ion-label position="stacked">Title
                     <ion-text color="danger">*</ion-text>
                 </ion-label>
-                <ion-input required type="text" [(ngModel)]="data.title" name="title"
+                <ion-input required type="text" #title="ngModel" [(ngModel)]="data.title" name="title"
                            placeholder="Title of my trip"></ion-input>
+            </ion-item>
+
+            <!-- Error message displayed if the title is invalid -->
+            <ion-item lines="none" *ngIf="title.invalid && title.touched">
+                <ion-text color='danger'>Title is required.</ion-text>
             </ion-item>
 
             <ion-item>
                 <ion-label position="stacked">Description
                     <ion-text color="danger">*</ion-text>
                 </ion-label>
-                <ion-textarea required [(ngModel)]="data.description" name="description"
+                <ion-textarea required #description="ngModel" [(ngModel)]="data.description" name="description"
                               placeholder="Description of my trip"></ion-textarea>
+            </ion-item>
+
+            <!-- Error message displayed if the description is invalid -->
+            <ion-item lines="none" *ngIf="description.invalid && description.touched">
+                <ion-text color='danger'>Description is required.</ion-text>
             </ion-item>
         </ion-list>
     </form>
@@ -38,11 +48,11 @@
         <ion-col col-6>
             <!--<ion-button expand="full">CREATE</ion-button>-->
             <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="success"
-                        (click)="submitForm()">CREATE
+                        (click)="submitForm(createForm)">CREATE
             </ion-button>
+            <ion-text color='danger' *ngIf="createError">Invalid</ion-text>
         </ion-col>
     </ion-row>
     <!-- Stop Buttons cancel & create -->
-
     <!-- STOP POST TRIP -->
 </ion-content>

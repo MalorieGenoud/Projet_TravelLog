@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap} from '@angular/router';
 import { Trip } from '../../models/trip';
 import { TripService } from '../../trip/trip.service';
 import { CacheService } from 'src/app/cache.service';
+import {NgForm} from "@angular/forms";
 
 @Component({
     selector: 'app-trip-edit',
@@ -14,6 +15,7 @@ export class TripEditPage implements OnInit {
 
     trip: Trip;
     tripId: any;
+    createError: boolean;
 
     constructor(
         //public router: ParamMap,
@@ -34,13 +36,32 @@ export class TripEditPage implements OnInit {
         })
     }
 
-    update() {
-        //Update trip by taking id and updated data object
-        this.tripService.updateTrip(this.tripId, this.trip).subscribe(response => {
-            console.log("trip updated");
-            //Update list after delete is successful
-            location.reload();
-        })
+    update(form: NgForm) {
+
+        // Do not do anything if the form is invalid.
+        if (form.invalid) {
+            return;
+        }
+
+        // Hide any previous login error.
+        this.createError = false;
+
+        this.tripService.updateTrip(this.tripId, this.trip).subscribe({
+            next: () => {
+                console.log("trip added");
+                location.reload();
+            },
+            error: err => {
+                this.createError = true;
+                console.warn(`Create a trip failed: ${err.message}`);
+            }
+        });
+        // //Update trip by taking id and updated data object
+        // this.tripService.updateTrip(this.tripId, this.trip).subscribe(response => {
+        //     console.log("trip updated");
+        //     //Update list after delete is successful
+        //     location.reload();
+        // })
     }
 
 }

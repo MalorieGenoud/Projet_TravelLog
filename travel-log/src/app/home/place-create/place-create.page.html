@@ -1,61 +1,104 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>place-create</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>place-create</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- START POST PLACE-->
-  <!--Start form create place -->
-  <form>
-    <ion-list lines="full" class="ion-no-margin ion-no-padding">
-      <ion-item>
-        <ion-label position="stacked">Name <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="text" [(ngModel)]="data.name" name="name" placeholder="Name of my place"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="stacked">Description <ion-text color="danger">*</ion-text></ion-label>
-        <ion-textarea required [(ngModel)]="data.description" name="description" placeholder="Description of my place"></ion-textarea>
-      </ion-item>
+    <!-- START POST PLACE-->
+    <!--Start form create place -->
+    <form #createForm="ngForm">
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item>
+                <ion-label position="stacked">Name
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required type="text" #name="ngModel" [(ngModel)]="data.name" name="name"
+                           placeholder="Name of my place"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Longitude <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="number" [(ngModel)]="data.location.coordinates[1]" name="longitude" placeholder="Longitude"></ion-input>
-      </ion-item>
+            <!-- Error message displayed if the name is invalid -->
+            <ion-item lines="none" *ngIf="name.invalid && name.touched">
+                <ion-text color='danger'>Name is required.</ion-text>
+            </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Latitude <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="number" [(ngModel)]="data.location.coordinates[0]" name="latitude" placeholder="Latitude"></ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Description
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-textarea required #description="ngModel" [(ngModel)]="data.description" name="description"
+                              placeholder="Description of my place"></ion-textarea>
+            </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Picture URL </ion-label>
-        <ion-input required type="text" [(ngModel)]="data.pictureUrl" name="pictureUrl" placeholder="Picture URL"></ion-input>
-      </ion-item>
+            <!-- Error message displayed if the name is invalid -->
+            <ion-item lines="none" *ngIf="description.invalid && description.touched">
+                <ion-text color='danger'>Description is required.</ion-text>
+            </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">tripId <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="text" [(ngModel)]="data.tripId" name="tripId" placeholder="Path `tripId`"></ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Longitude
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required #longitude="ngModel" type="number" [(ngModel)]="data.location.coordinates[1]" name="longitude"
+                           placeholder="Longitude"></ion-input>
+            </ion-item>
 
-      
-    </ion-list>
-  </form>
-  <!--Stop form create place-->
-  
-  <!-- Start Buttons cancel & create -->
-  <ion-row>
-    <ion-col col-6>
-      <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="secondary">CANCEL</ion-button>
-    </ion-col>
-    
-    <ion-col col-6>
-      <!--<ion-button expand="full">CREATE</ion-button>-->
-      <ion-button expand="full" type="submit" (click)="submitForm()" color="success">CREATE</ion-button>
-    </ion-col>
-  </ion-row>
-  <!-- Stop Buttons cancel & create -->
-  
-  <!-- STOP POST TRIP -->
+            <!-- Error message displayed if the name is invalid -->
+            <ion-item lines="none" *ngIf="longitude.invalid && longitude.touched">
+                <ion-text color='danger'>Longitude is required.</ion-text>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="stacked">Latitude
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required #latitude="ngModel" type="number" [(ngModel)]="data.location.coordinates[0]" name="latitude"
+                           placeholder="Latitude"></ion-input>
+            </ion-item>
+
+            <!-- Error message displayed if the name is invalid -->
+            <ion-item lines="none" *ngIf="latitude.invalid && latitude.touched">
+                <ion-text color='danger'>Latitude is required.</ion-text>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="stacked">Picture URL</ion-label>
+                <ion-input type="text" [(ngModel)]="data.pictureUrl" name="pictureUrl"
+                           placeholder="Picture URL"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="stacked">tripId
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required #tripId="ngModel" type="text" [(ngModel)]="data.tripId" name="tripId"
+                           placeholder="Path `tripId`"></ion-input>
+            </ion-item>
+
+            <!-- Error message displayed if the name is invalid -->
+            <ion-item lines="none" *ngIf="tripId.invalid && tripId.touched">
+                <ion-text color='danger'>The trip id is required.</ion-text>
+            </ion-item>
+        </ion-list>
+    </form>
+    <!--Stop form create place-->
+
+    <!-- Start Buttons cancel & create -->
+    <ion-row>
+        <ion-col col-6>
+            <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" color="secondary">CANCEL
+            </ion-button>
+        </ion-col>
+
+        <ion-col col-6>
+            <!--<ion-button expand="full">CREATE</ion-button>-->
+            <ion-button [routerLink]="['/home/trip-user']" expand="full" type="submit" (click)="submitForm(createForm)"
+                        color="success">CREATE
+            </ion-button>
+            <ion-text color='danger' *ngIf="createError">Invalid</ion-text>
+        </ion-col>
+    </ion-row>
+    <!-- Stop Buttons cancel & create -->
+
+    <!-- STOP POST TRIP -->
 </ion-content>
