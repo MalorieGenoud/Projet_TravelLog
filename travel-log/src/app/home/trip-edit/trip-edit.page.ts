@@ -53,15 +53,9 @@ export class TripEditPage implements OnInit {
             },
             error: err => {
                 this.createError = true;
-                console.warn(`Create a trip failed: ${err.message}`);
+                console.warn(`Update a trip failed: ${err.message}`);
             }
         });
-        // //Update trip by taking id and updated data object
-        // this.tripService.updateTrip(this.tripId, this.trip).subscribe(response => {
-        //     console.log("trip updated");
-        //     //Update list after delete is successful
-        //     location.reload();
-        // })
     }
 
 }
