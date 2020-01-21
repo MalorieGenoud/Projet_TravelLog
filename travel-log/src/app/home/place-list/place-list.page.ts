@@ -32,7 +32,8 @@ export class PlaceListPage implements OnInit {
 
   filter(data){
     this.placeService.filterPlaces(data.detail.value).subscribe(response =>{
-
+      // Ne fonctionne pas pour une raison qui m'échappe
+      // this.places = response;
     })
   }
 }

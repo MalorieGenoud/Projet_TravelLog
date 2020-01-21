@@ -1,9 +1,28 @@
 # Projet_TravelLog
 
 ## Introduction
-Dans le cadre de notre formation à la HEIG-VD, nous avons réalisé une application mobile. L’application en question est une application de voyage. Un utilisateur peut ajouter les voyages qu’il a effectué ainsi que les places qu’il a visité. Le but d’un tel projet est de mettre en pratique les divers éléments vu lors des cours de Mathias Oberson. 
+Dans le cadre de notre formation à la HEIG-VD, nous avons réalisé une application mobile. L’application en question est une application de voyage. Un utilisateur peut ajouter les voyages qu’il a effectué ainsi que les places qu’il a visité. Le but d’un tel projet est de mettre en pratique les divers éléments vu lors des cours de Mathias Oberson.
 
 Nous avons repris l’API proposé par Mathias. Nous avons fait ce choix, car celle que nous avons développée, lors du précédent cours, comportait beaucoup trop d’erreurs et modifications à apporter. Comme le temps nous est compté, nous avons préféré partir sur une API valide.
+
+## Utilisation
+Sur votre smartphone (Android ou iOS), installez "Ionic Dev App". Allez dans le répertoire "travel-log", ouvrez "Git Bash" et lancez une des commandes suivantes (tout dépend de votre smartphone) :
+```bash
+ionic cordova prepare android
+```
+```bash
+ionic cordova prepare ios
+```
+
+Ceci permettra de préparer le déploiement de l'application sur votre smartphone.
+
+Ensuite, assurez-vous que votre ordinateur soit connecté au même réseau que votre téléphone (le même Wifi). Dans Git Bash lancez la commande suivante :
+
+```bash
+ionic serve --devapp
+```
+
+Ouvrez l'application "Ionic Dev App" sur votre smartphone et connectez-vous à l'application (cela peut se faire automatiquement ou manuellement).
 
 ## Login
 Pour pouvoir utiliser notre application, un compte utilisateur est nécessaire. C'est pourquoi, la première page de notre application est une page de login.
@@ -17,7 +36,7 @@ Une fois le login effectué, l’utilisateur se retrouve sur la page d’accueil
 ![Homepage](images_doc/Home/Home.png "Homepage")
 
 ### Logout
-Si l’utilisateur souhaite se déconnecter de l’application, il peut le faire, à tout moment, en cliquant sur l’icône présente sur le haut de l’application : 
+Si l’utilisateur souhaite se déconnecter de l’application, il peut le faire, à tout moment, en cliquant sur l’icône présente sur le haut de l’application :
 
 ![Bouton logout](images_doc/Home/Logout/Logout.png "Bouton logout")
 
@@ -74,14 +93,14 @@ Au bas de la page "My Trips", deux boutons sont présents :
 
 ![Buttons](images_doc/Account/MyTrips/Buttons-my-trips.png "Buttons")
 
-Le bouton “BACK TO ACCOUNT PAGE” permet de retourner à la page précédente. Le bouton “CREATE A TRIP” permet à l’utilisateur de créer un voyage. 
+Le bouton “BACK TO ACCOUNT PAGE” permet de retourner à la page précédente. Le bouton “CREATE A TRIP” permet à l’utilisateur de créer un voyage.
 
 #### Create de Trip
 La page “Create Trip” se présente comme ceci :
 
 ![Form create a trip](images_doc/Account/MyTrips/CreateTrip/Create-trip.png "Form create a tripns")
 
-Pour enregistrer un nouveau voyage, il suffit de remplir le formulaire. Le premier champ correspond au titre du voyage, le second à sa description. 
+Pour enregistrer un nouveau voyage, il suffit de remplir le formulaire. Le premier champ correspond au titre du voyage, le second à sa description.
 
 Le bouton “CANCEL” permet de retourner à la page précédente (à savoir “My Trips”).
 
@@ -92,7 +111,7 @@ En cliquant sur le bouton “My Gallery”, l’utilisateur est dirigé sur une 
 
 ![Page Gallery](images_doc/Account/Gallery/Gallery.png "Page Gallery")
 
-En cliquant sur le bouton plus avec l’icône de l’appareil photo, l’utilisateur peut prendre une photo à l’aide de son smartphone. 
+En cliquant sur le bouton plus avec l’icône de l’appareil photo, l’utilisateur peut prendre une photo à l’aide de son smartphone.
 
 Il est possible que l’utilisateur doive autoriser l’application à prendre des photos et accéder à celles-ci.
 
